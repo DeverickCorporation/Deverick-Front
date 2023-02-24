@@ -34,15 +34,16 @@ function Register() {
       <label>Login:</label>
       <input type="text" value={login} onChange={(e) => setLogin(e.target.value)} />
       <br />
-      <label>Name:</label>
-      <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-      <br />
       <label>Password:</label>
       <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      {resp ? <label>{resp}</label> : null}
+      <br />
+      <label>Name:</label>
+      <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+      <label>{resp}</label>
 
       <br />
       <button onClick={handleRegestration}>Register</button>
+      <button onClick={handleRegestration}>Login</button>
     </div>
   );
 }

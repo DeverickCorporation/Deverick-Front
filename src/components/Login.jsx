@@ -32,10 +32,13 @@ function Login() {
       <br />
       <label>Password:</label>
       <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      {resp ? <label>{resp}</label> : null}
+      <label>{resp}</label>
 
       <br />
-      <button onClick={handleLogin}>Login</button>
+      <div className='auth-button-container'>
+        <button onClick={handleLogin}>Register</button>
+        <button onClick={handleLogin}>Login</button>
+      </div>
     </div>
   );
 }

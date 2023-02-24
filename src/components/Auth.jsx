@@ -4,7 +4,7 @@ import Register from './Register';
 import '../styles/login.css';
 
 function Auth() {
-    const [showLogin, setShowLogin] = useState(false);
+    const [showLogin, setShowLogin] = useState(true);
     const [showRegister, setShowRegister] = useState(false);
 
     const handleShowLogin = () => {
@@ -19,12 +19,12 @@ function Auth() {
 
     return (
         <div className='auth'>
-            <div>
-                {showLogin == false ? <button onClick={handleShowLogin}>Login</button> : null}
-                {showRegister == false ? <button onClick={handleShowRegister}>Register</button> : null}
-            </div>
             {showLogin ? <Login /> : null}
             {showRegister ? <Register /> : null}
+            {/* <div class="auth-button-container">
+                {showLogin == false ? <button onClick={handleShowLogin}>Login</button> : null}
+                {showRegister == false ? <button onClick={handleShowRegister}>Register</button> : null}
+            </div> */}
         </div>
     );
 }
