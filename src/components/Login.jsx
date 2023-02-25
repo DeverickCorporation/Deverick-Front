@@ -36,8 +36,8 @@ function Login() {
 
       <br />
       <div className='auth-button-container'>
-        <button onClick={handleLogin}>Register</button>
         <button onClick={handleLogin}>Login</button>
+        <button onClick={handleLogin}>Register</button>
       </div>
     </div>
   );

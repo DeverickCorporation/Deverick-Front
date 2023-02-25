@@ -42,8 +42,10 @@ function Register() {
       <label>{resp}</label>
 
       <br />
-      <button onClick={handleRegestration}>Register</button>
-      <button onClick={handleRegestration}>Login</button>
+      <div className='auth-button-container'>
+        <button onClick={handleRegestration}>Register</button>
+        <button onClick={handleRegestration}>Login</button>
+      </div>
     </div>
   );
 }
