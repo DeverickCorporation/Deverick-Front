@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* width: 50%; */
 }
 
 .auth{
@@ -15,7 +14,6 @@ h1 {
   font-size: 32px;
   font-weight: bold;
   margin: 22px 0;
-  /* text-align:center; */
 }
 
 label {
@@ -24,15 +22,20 @@ label {
 }
 
 input {
-  padding: 10px 0;
+  padding: 10px 7px;
   border: 1px solid #ccc;
   border-radius: 5px;
   margin: 5px 0 10px 0;
   width: 100%;
+  box-sizing: border-box;
+}
+
+input:not(:first-of-type) {
+  padding: 10px 8px;
 }
 
 button {
-  background-color: #006adc;
+  background-color: rgb(48, 102, 203);
   color: #e9ecef;
   padding: 10px 0;
   margin-top: 10px;
@@ -49,6 +52,19 @@ button {
 .auth-button-container {
   margin: auto;
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 1fr 3fr;
   gap: 10px;
+}
+
+.auth-button-container > button:first-of-type {
+  color: rgb(48, 102, 203);
+  background-color: rgb(222, 233, 251);
+}
+
+.fail-response {
+  color: #d33f49;
+}
+
+.success-response {
+  color: #148c00;
 }

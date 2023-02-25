@@ -38,7 +38,7 @@ function Register({ setShowRegister, setAutoLogin}) {
 
   return (
     <div>
-      <h1>Register</h1>
+      <h1>Sign up</h1>
       <label>Login:</label>
       <input type="text" value={login} onChange={(e) => setLogin(e.target.value)} />
       <br />
@@ -47,12 +47,12 @@ function Register({ setShowRegister, setAutoLogin}) {
       <br />
       <label>Name:</label>
       <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-      <label>{resp}</label>
+      <label className='fail-response'>{resp}</label>
 
       <br />
       <div className='auth-button-container'>
-        <button onClick={handleRegestration}>Register</button>
-        <button onClick={handleShowRegister}>Login</button>
+        <button onClick={handleShowRegister}>Log in</button>
+        <button onClick={handleRegestration}>Sign up</button>
       </div>
     </div>
   );

@@ -35,18 +35,22 @@ function Login({ setShowRegister, reg_login, reg_password, setJwtToken }) {
 
     return (
         <div>
-            <h1>Login</h1>
+            <h1>Log in</h1>
             <label>Login:</label>
             <input type="text" value={login} onChange={(e) => setLogin(e.target.value)} />
             <br />
             <label>Password:</label>
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-            <label>{resp}</label>
+            {/* <label>{resp}</label> */}
+
+            {resp !== "Registration successful you can log in now"?
+             <label className='fail-response'>{resp}</label> : 
+             <label className='success-response'>{resp}</label>}
 
             <br />
             <div className='auth-button-container'>
-                <button onClick={handleLogin}>Login</button>
-                <button onClick={handleShowRegister}>Register</button>
+                <button onClick={handleShowRegister}>Sign up</button>
+                <button onClick={handleLogin}>Log in</button>
             </div>
         </div>
     );
