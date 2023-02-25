@@ -4,27 +4,16 @@ import Register from './Register';
 import '../styles/login.css';
 
 function Auth() {
-    const [showLogin, setShowLogin] = useState(true);
     const [showRegister, setShowRegister] = useState(false);
+    
+    const [login, setLogin] = useState('');
+    const [password, setPassword] = useState('');
 
-    const handleShowLogin = () => {
-        setShowLogin(true);
-        setShowRegister(false);
-    }
-
-    const handleShowRegister = () => {
-        setShowLogin(false);
-        setShowRegister(true);
-    }
 
     return (
         <div className='auth'>
-            {showLogin ? <Login /> : null}
-            {showRegister ? <Register /> : null}
-            {/* <div class="auth-button-container">
-                {showLogin == false ? <button onClick={handleShowLogin}>Login</button> : null}
-                {showRegister == false ? <button onClick={handleShowRegister}>Register</button> : null}
-            </div> */}
+            {showRegister == false ? <Login setShowRegister={setShowRegister}  login = {login} password = {password}/> : null}
+            {showRegister ? <Register setShowRegister={setShowRegister} setLogin={setLogin} setPassword={setPassword} /> : null}
         </div>
     );
 }
