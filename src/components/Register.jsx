@@ -4,9 +4,9 @@ import '../styles/login.css';
 import { API_URL } from "../config"
 
 
-function Register({ setShowRegister, setLogin, setPassword}) {
-  const [curr_pass, setCurrPass] = useState('');
-  const [curr_login, setCurrLogin] = useState('');
+function Register({ setShowRegister, setAutoLogin}) {
+  const [password, setPass] = useState('');
+  const [login, setLogin] = useState('');
 
   const [name, setName] = useState('');
   const [resp, setResp] = useState("");
@@ -14,17 +14,14 @@ function Register({ setShowRegister, setLogin, setPassword}) {
 
   const handleRegestration = () => {
     axios.post(API_URL + '/auth/registration', {
-      login: curr_login,
-      password: curr_pass,
+      login: login,
+      password: password,
       name: name
     })
       .then(response => {
         console.log(response.data);
         setResp(response.data["message"])
-        setLogin(curr_login)
-        setPassword(curr_pass)
-        console.log(curr_login);
-        console.log(curr_pass);
+        setAutoLogin(login, password)
         setShowRegister(false)
       })
       .catch(error => {
@@ -43,10 +40,10 @@ function Register({ setShowRegister, setLogin, setPassword}) {
     <div>
       <h1>Register</h1>
       <label>Login:</label>
-      <input type="text" value={curr_login} onChange={(e) => setCurrLogin(e.target.value)} />
+      <input type="text" value={login} onChange={(e) => setLogin(e.target.value)} />
       <br />
       <label>Password:</label>
-      <input type="password" value={curr_pass} onChange={(e) => setCurrPass(e.target.value)} />
+      <input type="password" value={password} onChange={(e) => setPass(e.target.value)} />
       <br />
       <label>Name:</label>
       <input type="text" value={name} onChange={(e) => setName(e.target.value)} />

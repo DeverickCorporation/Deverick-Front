@@ -1,15 +1,13 @@
-import React, { useState, useCallback } from 'react';
 import axios from 'axios';
+import React, { useState } from 'react';
+import { API_URL } from "../config";
 import '../styles/login.css';
-import { API_URL } from "../config"
 
 
-function Login({ setShowRegister, reg_login, reg_password }) {
+function Login({ setShowRegister, reg_login, reg_password, setJwtToken }) {
     const [login, setLogin] = useState(reg_login);
     const [password, setPassword] = useState(reg_password);
-    const [resp, setResp] = useState("");
-    console.log(reg_login);
-    console.log(reg_password);
+    const [resp, setResp] = useState(reg_login ? "Registration successful you can log in now" : "");
 
 
     const handleLogin = () => {
@@ -20,7 +18,9 @@ function Login({ setShowRegister, reg_login, reg_password }) {
             .then(response => {
                 console.log(response.data);
                 setResp(response.data["message"])
-                setShowRegister(true)
+                setJwtToken(response.data["token"])
+                localStorage.setItem('jwt_token', response.data["token"])
+
             })
             .catch(error => {
                 console.log(error);
