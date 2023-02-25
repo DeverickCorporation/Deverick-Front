@@ -53,8 +53,10 @@ function Register({ setShowRegister, setLogin, setPassword}) {
       <label>{resp}</label>
 
       <br />
-      <button onClick={handleRegestration}>Register</button>
-      <button onClick={handleShowRegister}>Login</button>
+      <div className='auth-button-container'>
+        <button onClick={handleRegestration}>Register</button>
+        <button onClick={handleShowRegister}>Login</button>
+      </div>
     </div>
   );
 }
