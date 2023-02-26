@@ -1,13 +1,11 @@
-import jwtDecode from 'jwt-decode';
-import React from 'react';
-
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import jwtDecode from 'jwt-decode';
+import React, { useEffect, useState } from 'react';
 import { API_URL } from '../config';
 import LikesStat from './LikesStat';
+import PostList from './PostsList';
 import UserActivity from './UserActivity';
 import WritePosts from './WritePost';
-import PostList from './PostList';
 
 function MainPage({ jwt_token, setJwtToken }) {
   let user_data = jwtDecode(jwt_token)
@@ -19,26 +17,12 @@ function MainPage({ jwt_token, setJwtToken }) {
   const [showLikesStat, setShowLikesStat] = useState(false);
 
 
-  const handleLogout = () => {
+  function handleLogout() {
     console.log("Loged out");
     localStorage.clear()
     setJwtToken(false)
   }
 
-  const handleCreatePost = () => {
-    console.log("handleCreatePost");
-    setShowCreatePost(true)
-  }
-
-  const handleShowActivity = () => {
-    console.log("handleCreatePost");
-    setShowActivity(true)
-  }
-
-  const handleShowLikesStat = () => {
-    console.log("handleShowLikesStat");
-    setShowLikesStat(true)
-  }
   useEffect(() => {
     async function fetchData() {
       try {
@@ -68,14 +52,14 @@ function MainPage({ jwt_token, setJwtToken }) {
 
       <label>{user_data["name"]}</label>
       <button onClick={handleLogout}>Logout</button>
-      {showCreatePost ? <WritePosts setShowCreatePost={setShowCreatePost} /> : <button onClick={handleCreatePost}>Create post</button>}
-      {showActivity ? <UserActivity setShowActivity={setShowActivity} /> : <button onClick={handleShowActivity}>My activity</button>}
-      {showLikesStat ? null : <button onClick={handleShowLikesStat}>Like statistic</button>}
+      {showCreatePost ? <WritePosts setShowCreatePost={setShowCreatePost} /> : <button onClick={() => setShowCreatePost(true)}>Create post</button>}
+      {showActivity ? <UserActivity setShowActivity={setShowActivity} /> : <button onClick={() => setShowActivity(true)}>My activity</button>}
+      {showLikesStat ? null : <button onClick={() => setShowLikesStat(true)}>Like statistic</button>}
 
 
       <br />
       {showLikesStat ?
-        <LikesStat setShowLikesStat = {setShowLikesStat}/> :
+        <LikesStat setShowLikesStat={setShowLikesStat} /> :
         <PostList posts_list={posts_list} />
       }
 

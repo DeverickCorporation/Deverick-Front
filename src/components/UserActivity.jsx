@@ -1,16 +1,13 @@
 import axios from 'axios';
-import React, { useState,useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { API_URL } from "../config";
 import '../styles/login.css';
 
 function UserActivity({ setShowActivity }) {
 
     const [data, setData] = useState("");
-    
-    const handleClose = () => {
-        console.log("Close show activity");
-        setShowActivity(false);
-    }
+
+
     useEffect(() => {
         async function fetchData() {
             try {
@@ -41,7 +38,7 @@ function UserActivity({ setShowActivity }) {
 
             <br />
             <div className='auth-button-container'>
-                <button onClick={handleClose}>Cancel</button>
+                <button onClick={() => setShowActivity(false)}>Cancel</button>
             </div>
         </div>
     );

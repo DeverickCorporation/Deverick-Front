@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
 import axios from 'axios';
+import React, { useState } from 'react';
+import { API_URL } from "../config";
 import '../styles/login.css';
-import { API_URL } from "../config"
 
 
-function Register({ setShowRegister, setAutoLogin}) {
+function Register({ setShowRegister, setAutoLogin }) {
   const [password, setPass] = useState('');
   const [login, setLogin] = useState('');
 
@@ -12,7 +12,7 @@ function Register({ setShowRegister, setAutoLogin}) {
   const [resp, setResp] = useState("");
 
 
-  const handleRegestration = () => {
+  function handleRegestration() {
     axios.post(API_URL + '/auth/registration', {
       login: login,
       password: password,
@@ -27,13 +27,8 @@ function Register({ setShowRegister, setAutoLogin}) {
       .catch(error => {
         console.log(error);
         setResp(error.response.data["message"])
-      });      
+      });
   }
-
-  const handleShowRegister = () => {
-    console.log("Go to login");
-    setShowRegister(false);
-}
 
 
   return (
@@ -51,7 +46,7 @@ function Register({ setShowRegister, setAutoLogin}) {
 
       <br />
       <div className='auth-button-container'>
-        <button onClick={handleShowRegister}>Log in</button>
+        <button onClick={() => setShowRegister(false)}>Log in</button>
         <button onClick={handleRegestration}>Sign up</button>
       </div>
     </div>

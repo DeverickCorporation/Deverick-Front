@@ -9,7 +9,7 @@ function WritePosts({ setShowCreatePost }) {
     const [text, setText] = useState("");
 
 
-    const handlePostSave = () => {
+    function handlePostSave() {
         axios.post(API_URL + '/create_post', {
             "title": title,
             "text": text
@@ -26,10 +26,6 @@ function WritePosts({ setShowCreatePost }) {
             });
     }
 
-    const handleClose = () => {
-        console.log("Close Create post");
-        setShowCreatePost(false);
-    }
 
     return (
         <div>
@@ -43,7 +39,7 @@ function WritePosts({ setShowCreatePost }) {
             <br />
             <div className='auth-button-container'>
                 <button onClick={handlePostSave}>Publish</button>
-                <button onClick={handleClose}>Cancel</button>
+                <button onClick={() => setShowCreatePost(false)}>Cancel</button>
             </div>
         </div>
     );

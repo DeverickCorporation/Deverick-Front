@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import '../styles/login.css';
 import Login from './Login';
 import Register from './Register';
-import '../styles/login.css';
 
-function Auth({setJwtToken}) {
+function Auth({ setJwtToken }) {
     const [showRegister, setShowRegister] = useState(false);
 
     const [login, setLogin] = useState('');

@@ -10,7 +10,7 @@ function Login({ setShowRegister, reg_login, reg_password, setJwtToken }) {
     const [resp, setResp] = useState(reg_login ? "Registration successful you can log in now" : "");
 
 
-    const handleLogin = () => {
+    function handleLogin() {
         axios.post(API_URL + '/auth/login', {
             login: login,
             password: password
@@ -28,10 +28,6 @@ function Login({ setShowRegister, reg_login, reg_password, setJwtToken }) {
             });
     }
 
-    const handleShowRegister = () => {
-        console.log("Go to register");
-        setShowRegister(true);
-    }
 
     return (
         <div>
@@ -41,15 +37,14 @@ function Login({ setShowRegister, reg_login, reg_password, setJwtToken }) {
             <br />
             <label>Password:</label>
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-            {/* <label>{resp}</label> */}
 
-            {resp !== "Registration successful you can log in now"?
-             <label className='fail-response'>{resp}</label> : 
-             <label className='success-response'>{resp}</label>}
+            {resp !== "Registration successful you can log in now" ?
+                <label className='fail-response'>{resp}</label> :
+                <label className='success-response'>{resp}</label>}
 
             <br />
             <div className='auth-button-container'>
-                <button onClick={handleShowRegister}>Sign up</button>
+                <button onClick={() => setShowRegister(true)}>Sign up</button>
                 <button onClick={handleLogin}>Log in</button>
             </div>
         </div>

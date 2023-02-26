@@ -2,13 +2,13 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { API_URL } from "../config";
 
-const PostItem = (props) => {
+function PostItem(props) {
     let post_json = props.post_json
 
     const [like, setLike] = useState(false);
 
 
-    const handleSetLike = () => {
+    function handleSetLike() {
         axios.post(API_URL + '/like_post', {
             "post_id": post_json.post_id
         }, {
@@ -30,7 +30,7 @@ const PostItem = (props) => {
             });
     }
 
-    const handleSetUnlike = () => {
+    function handleSetUnlike() {
         axios.post(API_URL + '/unlike_post', {
             "post_id": post_json.post_id
         }, {

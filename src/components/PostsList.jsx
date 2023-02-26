@@ -1,7 +1,7 @@
 import React from 'react';
 import PostItem from './PostItem';
 
-const PostList = ({ posts_list }) => {
+function PostList({ posts_list }) {
 
     return (
 
