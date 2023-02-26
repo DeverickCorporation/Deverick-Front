@@ -2,17 +2,18 @@ import jwtDecode from 'jwt-decode';
 import React from 'react';
 
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { API_URL } from '../config';
-import WritePosts from './WritePost';
-import UserActivity from './UserActivity';
 import LikesStat from './LikesStat';
+import UserActivity from './UserActivity';
+import WritePosts from './WritePost';
+import PostList from './PostList';
 
 function MainPage({ jwt_token, setJwtToken }) {
   let user_data = jwtDecode(jwt_token)
   console.log(user_data)
 
-  const [data, setData] = useState(null);
+  const [posts_list, setPostsList] = useState(null);
   const [showCreatePost, setShowCreatePost] = useState(false);
   const [showActivity, setShowActivity] = useState(false);
   const [showLikesStat, setShowLikesStat] = useState(false);
@@ -47,7 +48,7 @@ function MainPage({ jwt_token, setJwtToken }) {
           },
           params: { limit: 5 }
         });
-        setData(response.data);
+        setPostsList(response.data["posts_dict"]);
       } catch (error) {
         console.error(error);
       }
@@ -55,11 +56,11 @@ function MainPage({ jwt_token, setJwtToken }) {
     fetchData();
   }, []);
 
-  if (!data) {
+  if (!posts_list) {
     return <p>Loading data...</p>;
   }
 
-  console.log(data)
+  console.log(posts_list)
 
   return (
     <div>
@@ -69,11 +70,13 @@ function MainPage({ jwt_token, setJwtToken }) {
       <button onClick={handleLogout}>Logout</button>
       {showCreatePost ? <WritePosts setShowCreatePost={setShowCreatePost} /> : <button onClick={handleCreatePost}>Create post</button>}
       {showActivity ? <UserActivity setShowActivity={setShowActivity} /> : <button onClick={handleShowActivity}>My activity</button>}
+      {showLikesStat ? null : <button onClick={handleShowLikesStat}>Like statistic</button>}
+
 
       <br />
       {showLikesStat ?
-      <LikesStat /> : 
-      <label>{JSON.stringify(data["posts_dict"], null, 2)}</label>
+        <LikesStat setShowLikesStat = {setShowLikesStat}/> :
+        <PostList posts_list={posts_list} />
       }
 
     </div>

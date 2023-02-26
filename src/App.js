@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./styles/reset.css";
+// import "./styles/reset.css";
 
 import Auth from "./components/Auth";
 import MainPage from './components/MainPage';
