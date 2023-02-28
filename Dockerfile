@@ -1,12 +1,12 @@
-# Stage 0, "build-stage", based on Node.js, to build and compile the frontend
-FROM node:19.5.0-alpine as build-stage
+# build environment
+FROM node:18.14.2-alpine3.17 as build
 WORKDIR /app
-COPY package*.json /app/
-RUN npm install
-COPY ./ /app/
-RUN npm run build
-# Stage 1, based on Nginx, to have only the compiled app, ready for production with Nginx
-FROM nginx:1.15
-
-COPY --from=build-stage /app/build/nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=build-stage /app/build/ /usr/share/nginx/html
+COPY . .
+RUN yarn
+RUN yarn build
+# production environment
+FROM nginx:stable-alpine
+COPY  --from=build /app/build /usr/share/nginx/html
+COPY  --from=build /app/nginx/nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 8006
+CMD ["nginx", "-g", "daemon off;"]

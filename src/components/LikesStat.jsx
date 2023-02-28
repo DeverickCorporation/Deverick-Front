@@ -16,12 +16,15 @@ function LikesStat({ setShowLikesStat }) {
     const [date_to, setDateTo] = useState(def_date_to);
     const [likes_data, setDataLikes] = useState("");
 
+    const [resp, setResp] = useState("");
+
+
     console.log(formatDate(date_from))
 
     function formatDate(date) {
         return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + (date.getDate() + 1)
     }
-    
+
     async function handleLikesStat() {
         try {
             const response = await axios.get(API_URL + '/analitics', {
@@ -29,9 +32,15 @@ function LikesStat({ setShowLikesStat }) {
                 params: { date_from: formatDate(date_from), date_to: formatDate(date_to) }
             });
             setDataLikes(response.data);
+            setResp(response.status)
             console.log("likes loaded")
         } catch (error) {
+            setResp(error.response.status)
+            if (error.response.status === 409) {
+                setDataLikes(error.response.data.message);
+            }
             console.error(error);
+
         }
     }
     useEffect(() => {
@@ -57,8 +66,11 @@ function LikesStat({ setShowLikesStat }) {
                 <button onClick={() => setShowLikesStat(false)}>Cancel</button>
                 <button onClick={handleLikesStat}>Get data</button>
             </div>
-            {likes_data ? <LikesList likes_data={likes_data} /> :
-                <p>Loading...</p>
+            {
+                resp === 200 ? <LikesList likes_data={likes_data} /> :
+                    resp === 409 ? <p>You don't have any posts yet</p> :
+                        resp === 400 ? <p>Bad request</p> :
+                            <p>Loading...</p>
             }
         </div>
     );
