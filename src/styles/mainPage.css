@@ -7,8 +7,21 @@ header {
     background-color: #293241;
     display: flex;
     align-items: center;
-    justify-content: end;
-    padding-right: 90px;
+    justify-content: space-between;
+    padding: 0 90px 0 5%;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+.likesstat {
+    margin-top: -22px;
+}
+
+.starnavi-label {
+    color: #e9ecef;
+    font-size: 24px;
 }
 
 .logout {
@@ -41,7 +54,6 @@ body {
 
 aside {
     padding: 40px 0 0 0;
-    /* margin-left: -10%; */
 }
 
 .avatar {
@@ -53,13 +65,13 @@ aside {
     padding-top: 40%;
     padding-bottom: 40%;
 
-    background-image: url("../github-octocat.png");
+    background-image: url("../images/github-octocat.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-aside > p {
+aside>p {
     text-align: center;
     margin: 0;
 }
@@ -78,7 +90,7 @@ aside > p {
     color: #57606A;
 }
 
-aside > button {
+aside>button {
     display: block;
     width: 80%;
     height: 32px;
@@ -98,33 +110,30 @@ aside > button {
     justify-content: center;
 }
 
-.status-bar > div {
+.status-bar>div {
     width: 300px;
     text-align: center;
 }
 
-.Likes, .Posts {
+.Likes,
+.Posts {
     transition: all 0.25s ease;
     cursor: pointer;
     user-select: none;
 }
 
-/* .Likes:active, .Posts:active {
-    transform: scale(0.9);
-} */
-
-.status-bar > div > p.active {
+.status-bar>div>p.active {
     font-weight: bold;
 }
 
-.status-bar > div > p {
+.status-bar>div>p {
     font-size: 14px;
     display: inline-block;
     padding: 1px 15px;
     transition: all 1s ease;
 }
 
-.status-bar > div > p.active::after {
+.status-bar>div>p.active::after {
     content: "";
     position: relative;
     display: block;
@@ -137,7 +146,7 @@ aside > button {
     transition: transform 0.25s ease;
 }
 
-.status-bar > div > p:not([class="active"])::after {
+.status-bar>div>p:not([class="active"])::after {
     content: "";
     position: relative;
     display: block;
@@ -150,16 +159,15 @@ aside > button {
     transition: transform 0.25s ease;
 }
 
-.status-bar > div:hover > p:not([class="active"]):after {
+.status-bar>div:hover>p:not([class="active"]):after {
     transform: scaleX(2.5);
 }
 
-.status-bar > div:active > p:not([class="active"]):after {
+.status-bar>div:active>p:not([class="active"]):after {
     transform: scaleX(0.5);
 }
 
 .post {
-    /* height: 140px; */
     min-height: 120px;
     display: grid;
     grid-template-columns: 85% 1fr;
@@ -167,7 +175,7 @@ aside > button {
     border-bottom: 1px solid #D0D7DE;
 }
 
-.post > h2 {
+.post>h2 {
     font-size: 20px;
     font-weight: bold;
     margin: 8px 0 0 5px;
@@ -175,12 +183,12 @@ aside > button {
     line-height: 40px;
 }
 
-.post > h2 > span {
+.post>h2>span {
     color: #57606A;
     font-size: 18px;
 }
 
-.post > .text {
+.post>.text {
     font-size: 14px;
     margin: 0px 0 13px 5px;
     white-space: pre-line;
@@ -188,28 +196,28 @@ aside > button {
 
 .heart-container {
     display: flex;
-    align-items: end;
-    justify-content: end;
+    align-items: flex-end;
+    justify-content: flex-end;
     padding: 0 5px 0 0;
 }
 
-.heart-container > span {
+.heart-container>span {
     font-size: 12px;
     padding: 0 5px 5px 0;
     user-select: none;
 }
 
-.heart-container > svg {
+.heart-container>svg {
     transition: all 0.25s ease;
     user-select: none;
     cursor: pointer;
 }
 
-.heart-container > svg:hover {
+.heart-container>svg:hover {
     transform: scale(1.1);
 }
 
-.heart-container > svg:active {
+.heart-container>svg:active {
     transform: scale(0.9);
 }
 
@@ -217,7 +225,7 @@ aside > button {
     fill: red;
 }
 
-.post > .data {
+.post>.data {
     text-align: end;
     color: #57606A;
     font-size: 12px;
@@ -231,8 +239,6 @@ div.post:nth-child(1) {
     border-top: 1px solid #D0D7DE;
 }
 
-
-
 .popup-box {
     position: fixed;
     background: #00000050;
@@ -240,9 +246,9 @@ div.post:nth-child(1) {
     height: 100vh;
     top: 0;
     left: 0;
-  }
-   
-  .box {
+}
+
+.box {
     position: relative;
     width: 40%;
     margin: 0 auto;
@@ -254,9 +260,9 @@ div.post:nth-child(1) {
     padding: 20px;
     border: 1px solid #999;
     overflow: auto;
-  }
-   
-  .close-icon {
+}
+
+.close-icon {
     content: 'x';
     cursor: pointer;
     position: fixed;
@@ -270,7 +276,7 @@ div.post:nth-child(1) {
     text-align: center;
     border: 1px solid #999;
     font-size: 20px;
-  }
+}
 
 textarea {
     display: block;
@@ -278,6 +284,19 @@ textarea {
     font-family: 'Rubik', sans-serif;
     color: #24292F;
     margin-bottom: -20px;
+    resize: none;
+}
+
+.react-datepicker__day--selected {
+    background-color: #FD8C73 !important;
+}
+
+.react-datepicker__navigation {
+    top: -8px !important;
+}
+
+.react-datepicker-ignore-onclickoutside {
+    caret-color: #fff !important;
 }
 
 .likepost {
@@ -286,4 +305,11 @@ textarea {
 
 .likepost:first-child {
     margin: 5px 0 0 0;
+}
+
+.data-input-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    box-sizing: border-box;
 }

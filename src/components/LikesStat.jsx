@@ -41,20 +41,24 @@ function LikesStat({ setShowLikesStat }) {
 
 
     return (
-        <div>
+        <div className='likesstat'>
             <h1>Likes of your posts</h1>
-            <div>
-                <label>Date from</label>
-                <DatePicker selected={date_from} onChange={(date) => setDateFrom(date)} />
-                <label>Date to</label>
-                <DatePicker selected={date_to} onChange={(date) => setDateTo(date)} />
+            <div className='data-input-container'>
+                <div>
+                    <label>Date from</label>
+                    <DatePicker selected={date_from} onChange={(date) => setDateFrom(date)} />
+                </div>
+                <div>
+                    <label>Date to</label>
+                    <DatePicker selected={date_to} onChange={(date) => setDateTo(date)} />
+                </div>
             </div>
             <div className='auth-button-container'>
                 <button onClick={() => setShowLikesStat(false)}>Cancel</button>
                 <button onClick={handleLikesStat}>Get data</button>
             </div>
-            {likes_data ?<LikesList likes_data={likes_data} />:
-            <p>Loading...</p>
+            {likes_data ? <LikesList likes_data={likes_data} /> :
+                <p>Loading...</p>
             }
         </div>
     );
