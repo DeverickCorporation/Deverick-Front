@@ -29,6 +29,7 @@ input, textarea {
   width: 100%;
   box-sizing: border-box;
   font-size: 16px;
+  caret-color: #FD8C73;
 }
 
 input:not(:first-of-type) {
@@ -36,11 +37,11 @@ input:not(:first-of-type) {
 }
 
 button {
-  background-color: rgb(48, 102, 203);
+  /* background-color: rgb(48, 102, 203); */
+  background-color: #293241;
   color: #e9ecef;
   padding: 10px 0;
   margin-top: 10px;
-
 
   border-radius: 5px;
   border: none;
@@ -59,7 +60,9 @@ button {
 
 .auth-button-container > button:first-of-type {
   color: rgb(48, 102, 203);
-  background-color: rgb(222, 233, 251);
+  /* background-color: rgb(222, 233, 251); */
+  background-color: #e9ecef;
+  color: #293241;
 }
 
 .fail-response {

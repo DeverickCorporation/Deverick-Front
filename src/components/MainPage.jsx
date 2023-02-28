@@ -2,7 +2,7 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import React, { useEffect, useState } from 'react';
 import { API_URL } from '../config';
-import Logout_image from '../logout.png';
+import Logout_image from '../images/logout.png';
 import '../styles/mainPage.css';
 import LikesStat from './LikesStat';
 import Popup from './Popup';
@@ -74,6 +74,7 @@ function MainPage({ jwt_token, setJwtToken }) {
   return (
     <div className='main-page'>
       <header>
+        <h1 className='starnavi-label'>StarNavi-Network</h1>
         <img className='logout' onClick={handleLogout} src={Logout_image} alt="Logout"></img>
       </header>
       <hr className='under-header'></hr>
