@@ -15,3 +15,13 @@ body {
         width: 90%;
     }
 }
+
+@media (max-width: 960px) {
+    .App{
+        display: none;
+    }
+    #root::after {
+        opacity: 1;
+        content: "For PC only :(";
+    }
+}
