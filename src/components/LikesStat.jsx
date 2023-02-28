@@ -21,6 +21,7 @@ function LikesStat({ setShowLikesStat }) {
     function formatDate(date) {
         return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + (date.getDate() + 1)
     }
+    
     async function handleLikesStat() {
         try {
             const response = await axios.get(API_URL + '/analitics', {
@@ -33,7 +34,6 @@ function LikesStat({ setShowLikesStat }) {
             console.error(error);
         }
     }
-
     useEffect(() => {
         handleLikesStat();
     }, []);

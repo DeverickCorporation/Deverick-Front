@@ -26,21 +26,21 @@ function MainPage({ jwt_token, setJwtToken }) {
     setJwtToken(false)
   }
 
-  async function verifyToken() {
-    try {
-      const response = await axios.get(API_URL + '/check_auth',
-        { headers: { "jwt-token": localStorage.getItem("jwt_token") } });
-
-      console.log(response.data.message);
-    } catch (error) {
-      console.error(error.response.data.message);
-      if (error.response.status === 403) {
-        handleLogout()
-      }
-
-    }
-  }
   useEffect(() => {
+    async function verifyToken() {
+      try {
+        const response = await axios.get(API_URL + '/check_auth',
+          { headers: { "jwt-token": localStorage.getItem("jwt_token") } });
+
+        console.log(response.data.message);
+      } catch (error) {
+        console.error(error.response.data.message);
+        if (error.response.status === 403) {
+          handleLogout()
+        }
+
+      }
+    }
     verifyToken();
   }, []);
 
