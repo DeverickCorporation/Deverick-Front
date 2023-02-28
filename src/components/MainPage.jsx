@@ -3,7 +3,6 @@ import jwtDecode from 'jwt-decode';
 import React, { useEffect, useState } from 'react';
 import { API_URL } from '../config';
 import Logout_image from '../logout.png';
-import Avatar from '../github-octocat.png'
 import '../styles/mainPage.css';
 import LikesStat from './LikesStat';
 import Popup from './Popup';
@@ -19,8 +18,6 @@ function MainPage({ jwt_token, setJwtToken }) {
   const [showCreatePost, setShowCreatePost] = useState(false);
   const [showActivity, setShowActivity] = useState(false);
   const [showLikesStat, setShowLikesStat] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-  const [IsOpenActivity, setIsOpenActivity] = useState(false);
 
 
   function handleLogout() {
@@ -29,36 +26,50 @@ function MainPage({ jwt_token, setJwtToken }) {
     setJwtToken(false)
   }
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await axios.get(API_URL + '/posts', {
-          headers: {
-            "jwt-token": jwt_token
-          },
-          params: { limit: 50 }
-        });
-        setPostsList(response.data["posts_dict"]);
-      } catch (error) {
-        console.error(error);
+  async function verifyToken() {
+    try {
+      const response = await axios.get(API_URL + '/check_auth',
+        { headers: { "jwt-token": localStorage.getItem("jwt_token") } });
+
+      console.log(response.data.message);
+    } catch (error) {
+      console.error(error.response.data.message);
+      if (error.response.status === 403) {
+        handleLogout()
       }
+
     }
-    fetchData();
+  }
+  useEffect(() => {
+    verifyToken();
   }, []);
 
-  if (!posts_list) {
-    return <p>Loading data...</p>;
+
+  async function fetchPosts() {
+    try {
+      const response = await axios.get(API_URL + '/posts',
+        {
+          headers: { "jwt-token": localStorage.getItem("jwt_token") },
+          params: { limit: 50 }
+        });
+      setPostsList(response.data["posts_dict"]);
+      console.log("posts loaded")
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  useEffect(() => {
+    fetchPosts();
+  }, [showCreatePost]);
+
+
+  const toggleShowCreatePost = () => {
+    setShowCreatePost(!showCreatePost);
   }
 
-  const togglePopup = () => {
-    setIsOpen(!isOpen);
+  const toggleShowActivity = () => {
+    setShowActivity(!showActivity);
   }
-
-  const togglePopupActivity = () => {
-    setIsOpenActivity(!IsOpenActivity);
-  }
-
-  console.log(posts_list)
 
   return (
     <div className='main-page'>
@@ -71,8 +82,8 @@ function MainPage({ jwt_token, setJwtToken }) {
           <div className='avatar'></div>
           <p className='name'>{user_data["name"]}</p>
           <p className='login'>{user_data["login"]}</p>
-          <button onClick={togglePopup} className='create-post'>Create post</button>
-          <button onClick={togglePopupActivity} className='my-activity'>My activity</button>
+          <button onClick={toggleShowCreatePost} className='create-post'>Create post</button>
+          <button onClick={toggleShowActivity} className='my-activity'>My activity</button>
         </aside>
         <main>
 
@@ -97,23 +108,23 @@ function MainPage({ jwt_token, setJwtToken }) {
 
           {showLikesStat ?
             <LikesStat setShowLikesStat={setShowLikesStat} /> :
-            <PostList posts_list={posts_list} />
+            posts_list ? <PostList posts_list={posts_list} /> : <p>Loading...</p>
           }
         </main>
       </div>
 
-      {isOpen && <Popup
+      {showCreatePost && <Popup
         content={
-          <WritePosts setShowCreatePost={setIsOpen} />
+          <WritePosts setShowCreatePost={setShowCreatePost} />
         }
-        handleClose={togglePopup}
+        handleClose={toggleShowCreatePost}
       />}
 
-      {IsOpenActivity && <Popup
+      {showActivity && <Popup
         content={
-          <UserActivity setShowActivity={setIsOpenActivity} />
+          <UserActivity />
         }
-        handleClose={togglePopupActivity}
+        handleClose={toggleShowActivity}
       />}
 
     </div>

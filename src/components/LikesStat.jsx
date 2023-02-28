@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css';
 import { API_URL } from "../config";
@@ -14,29 +14,31 @@ function LikesStat({ setShowLikesStat }) {
 
     const [date_from, setDateFrom] = useState(def_date_from);
     const [date_to, setDateTo] = useState(def_date_to);
-    const [data, setData] = useState("");
+    const [likes_data, setDataLikes] = useState("");
 
     console.log(formatDate(date_from))
 
     function formatDate(date) {
         return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + (date.getDate() + 1)
     }
-    function handleLikesStat() {
-        axios.get(API_URL + '/analitics', {
-
-            headers: {
-                "jwt-token": localStorage.getItem("jwt_token")
-            },
-            params: { date_from: formatDate(date_from), date_to: formatDate(date_to) }
-        })
-            .then(response => {
-                console.log(response.data);
-                setData(response.data)
-            })
-            .catch(error => {
-                console.log(error);
+    async function handleLikesStat() {
+        try {
+            const response = await axios.get(API_URL + '/analitics', {
+                headers: { "jwt-token": localStorage.getItem("jwt_token") },
+                params: { date_from: formatDate(date_from), date_to: formatDate(date_to) }
             });
+            setDataLikes(response.data);
+            console.log("likes loaded")
+        } catch (error) {
+            console.error(error);
+        }
     }
+
+    useEffect(() => {
+        handleLikesStat();
+    }, []);
+
+
 
     return (
         <div>
@@ -51,8 +53,9 @@ function LikesStat({ setShowLikesStat }) {
                 <button onClick={() => setShowLikesStat(false)}>Cancel</button>
                 <button onClick={handleLikesStat}>Get data</button>
             </div>
-            <LikesList likes_data={data} />
-
+            {likes_data ?<LikesList likes_data={likes_data} />:
+            <p>Loading...</p>
+            }
         </div>
     );
 }

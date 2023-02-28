@@ -3,29 +3,29 @@ import React, { useEffect, useState } from 'react';
 import { API_URL } from "../config";
 import '../styles/login.css';
 
-function UserActivity({ setShowActivity }) {
+function UserActivity() {
 
     const [data, setData] = useState("");
 
+    async function fetchActivity() {
+        try {
+            const response = await axios.get(API_URL + '/my_activity', {
+                headers: {
+                    "jwt-token": localStorage.getItem("jwt_token")
+                }
+            });
+            setData(response.data);
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
     useEffect(() => {
-        async function fetchData() {
-            try {
-                const response = await axios.get(API_URL + '/my_activity', {
-                    headers: {
-                        "jwt-token": localStorage.getItem("jwt_token")
-                    }
-                });
-                setData(response.data);
-            } catch (error) {
-                console.error(error);
-            }
-        }
-        fetchData();
+        fetchActivity();
     }, []);
 
     if (!data) {
-        return <p>Loading data...</p>;
+        return <p>Loading...</p>;
     }
 
 

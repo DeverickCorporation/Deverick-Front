@@ -38,9 +38,9 @@ function Login({ setShowRegister, reg_login, reg_password, setJwtToken }) {
             <label>Password:</label>
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
 
-            {resp !== "Registration successful you can log in now" ?
-                <label className='fail-response'>{resp}</label> :
-                <label className='success-response'>{resp}</label>}
+            {reg_login ?
+                <label className='success-response'>{resp}</label> :
+                <label className='fail-response'>{resp}</label>}
 
             <br />
             <div className='auth-button-container'>
