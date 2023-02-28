@@ -5,11 +5,11 @@ function PostList({ posts_list }) {
 
     return (
 
-        <ul>
+        <div>
             {posts_list.map(post =>
                 <PostItem post_json={post} key={post.post_id} />
             )}
-        </ul>
+        </div>
     )
 }
 

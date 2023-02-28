@@ -4,8 +4,10 @@
 
 body {
     font-family: 'Rubik', sans-serif;
-    color: #212529;
+    color: #24292F;
     background-color: rgb(246, 246, 246);
+    padding: 0;
+    margin: 0;
 }
 
 @media (min-width: 200px) and (max-width: 600px) {

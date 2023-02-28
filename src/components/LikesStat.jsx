@@ -48,10 +48,9 @@ function LikesStat({ setShowLikesStat }) {
                 <DatePicker selected={date_to} onChange={(date) => setDateTo(date)} />
             </div>
             <div className='auth-button-container'>
-                <button onClick={handleLikesStat}>Get data</button>
                 <button onClick={() => setShowLikesStat(false)}>Cancel</button>
+                <button onClick={handleLikesStat}>Get data</button>
             </div>
-
             <LikesList likes_data={data} />
 
         </div>

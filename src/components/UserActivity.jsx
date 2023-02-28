@@ -35,11 +35,6 @@ function UserActivity({ setShowActivity }) {
             <label>Last login: {data["last_login"]} </label>
             <br />
             <label>Last request: {data["last_request"]} </label>
-
-            <br />
-            <div className='auth-button-container'>
-                <button onClick={() => setShowActivity(false)}>Cancel</button>
-            </div>
         </div>
     );
 }

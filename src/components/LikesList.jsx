@@ -6,20 +6,22 @@ function LikesList({ likes_data }) {
     console.log(likes_data)
 
     if (!likes_data) {
-        return <label>Choose dates </label>
+
+        return <div><br /> <label>Choose dates </label></div>
 
     }
 
     return (
 
         <div>
-            <label>You have {likes_data.likes_num} for this period </label>
+            <br />
+            <label>You have <b>{likes_data.likes_num}</b> likes for this period </label>
 
-            <ul>
+            <div>
                 {likes_data["likes_dict"].map(post =>
                     <LikeItem like_json={post} key={post.post_id} />
                 )}
-            </ul>
+            </div>
         </div>
     )
 }

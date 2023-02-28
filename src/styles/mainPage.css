@@ -1,0 +1,289 @@
+.App {
+    padding: 0 !important;
+}
+
+header {
+    height: 80px;
+    background-color: #293241;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding-right: 90px;
+}
+
+.logout {
+    cursor: pointer;
+}
+
+body {
+    background-color: #FFFFFF !important;
+    padding: 0 0 50px 0 !important;
+}
+
+.under-header {
+    border: 1px solid #D0D7DE;
+    position: relative;
+    float: left;
+    margin: 0;
+    top: 72px;
+    box-sizing: border-box;
+    width: 100%;
+    z-index: -1;
+}
+
+.container-main {
+    display: grid;
+    width: 86%;
+    gap: 50px;
+    margin: auto;
+    grid-template-columns: 240px 2fr;
+}
+
+aside {
+    padding: 40px 0 0 0;
+    /* margin-left: -10%; */
+}
+
+.avatar {
+    width: 80%;
+    margin: auto;
+    background: #D9D9D9;
+    outline: 2px solid #d0d7de;
+    border-radius: 50%;
+    padding-top: 40%;
+    padding-bottom: 40%;
+
+    background-image: url("../github-octocat.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+aside > p {
+    text-align: center;
+    margin: 0;
+}
+
+.name {
+    height: 50px;
+    font-size: 26px;
+    line-height: 50px;
+    margin-top: 10px;
+}
+
+.login {
+    height: 20px;
+    font-size: 16px;
+    line-height: 20px;
+    color: #57606A;
+}
+
+aside > button {
+    display: block;
+    width: 80%;
+    height: 32px;
+    padding: 0;
+    border-radius: 7px;
+    background: #F6F8FA;
+    border: 1px solid rgba(27, 31, 36, 0.15);
+    color: inherit;
+    font-weight: 400;
+    font-size: 16px;
+    margin: 20px auto 0 auto;
+}
+
+.status-bar {
+    display: flex;
+    padding: 25px 0 40px 0;
+    justify-content: center;
+}
+
+.status-bar > div {
+    width: 300px;
+    text-align: center;
+}
+
+.Likes, .Posts {
+    transition: all 0.25s ease;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* .Likes:active, .Posts:active {
+    transform: scale(0.9);
+} */
+
+.status-bar > div > p.active {
+    font-weight: bold;
+}
+
+.status-bar > div > p {
+    font-size: 14px;
+    display: inline-block;
+    padding: 1px 15px;
+    transition: all 1s ease;
+}
+
+.status-bar > div > p.active::after {
+    content: "";
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 1.5px;
+    top: 4px;
+    left: 0;
+    background-color: #FD8C73;
+    transform: scaleX(1.8);
+    transition: transform 0.25s ease;
+}
+
+.status-bar > div > p:not([class="active"])::after {
+    content: "";
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 1.5px;
+    top: 4px;
+    left: 0;
+    background-color: #FD8C73;
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+}
+
+.status-bar > div:hover > p:not([class="active"]):after {
+    transform: scaleX(2.5);
+}
+
+.status-bar > div:active > p:not([class="active"]):after {
+    transform: scaleX(0.5);
+}
+
+.post {
+    /* height: 140px; */
+    min-height: 120px;
+    display: grid;
+    grid-template-columns: 85% 1fr;
+
+    border-bottom: 1px solid #D0D7DE;
+}
+
+.post > h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 8px 0 0 5px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.post > h2 > span {
+    color: #57606A;
+    font-size: 18px;
+}
+
+.post > .text {
+    font-size: 14px;
+    margin: 0px 0 13px 5px;
+    white-space: pre-line;
+}
+
+.heart-container {
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    padding: 0 5px 0 0;
+}
+
+.heart-container > span {
+    font-size: 12px;
+    padding: 0 5px 5px 0;
+    user-select: none;
+}
+
+.heart-container > svg {
+    transition: all 0.25s ease;
+    user-select: none;
+    cursor: pointer;
+}
+
+.heart-container > svg:hover {
+    transform: scale(1.1);
+}
+
+.heart-container > svg:active {
+    transform: scale(0.9);
+}
+
+.liked {
+    fill: red;
+}
+
+.post > .data {
+    text-align: end;
+    color: #57606A;
+    font-size: 12px;
+    height: 14px;
+    margin: 0 0 0 0;
+    align-self: last baseline;
+    padding: 0 5px 13px 0px;
+}
+
+div.post:nth-child(1) {
+    border-top: 1px solid #D0D7DE;
+}
+
+
+
+.popup-box {
+    position: fixed;
+    background: #00000050;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+  }
+   
+  .box {
+    position: relative;
+    width: 40%;
+    margin: 0 auto;
+    height: auto;
+    max-height: 70vh;
+    margin-top: calc(100vh - 85vh - 20px);
+    background: #fff;
+    border-radius: 4px;
+    padding: 20px;
+    border: 1px solid #999;
+    overflow: auto;
+  }
+   
+  .close-icon {
+    content: 'x';
+    cursor: pointer;
+    position: fixed;
+    right: calc(30% - 30px);
+    top: calc(100vh - 85vh - 33px);
+    background: #ededed;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    line-height: 20px;
+    text-align: center;
+    border: 1px solid #999;
+    font-size: 20px;
+  }
+
+textarea {
+    display: block;
+    height: 300px;
+    font-family: 'Rubik', sans-serif;
+    color: #24292F;
+    margin-bottom: -20px;
+}
+
+.likepost {
+    min-height: 90px;
+}
+
+.likepost:first-child {
+    margin: 5px 0 0 0;
+}

@@ -20,6 +20,7 @@ function WritePosts({ setShowCreatePost }) {
         })
             .then(response => {
                 console.log(response.data);
+                setShowCreatePost(false);
             })
             .catch(error => {
                 console.log(error);
@@ -34,12 +35,12 @@ function WritePosts({ setShowCreatePost }) {
             <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
             <br />
             <label>Text:</label>
-            <input type="text" value={text} onChange={(e) => setText(e.target.value)} />
+            <textarea value={text} onChange={(e) => setText(e.target.value)} />
 
             <br />
             <div className='auth-button-container'>
-                <button onClick={handlePostSave}>Publish</button>
                 <button onClick={() => setShowCreatePost(false)}>Cancel</button>
+                <button onClick={handlePostSave}>Publish</button>
             </div>
         </div>
     );
