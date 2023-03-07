@@ -1,18 +1,27 @@
-.App {
-    padding: 0 !important;
-}
-
 header {
-    height: 80px;
     background-color: #293241;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 80px;
     padding: 0 90px 0 5%;
 }
 
-h1 {
-    font-size: 28px;
+.under-header {
+    border: 1px solid #D0D7DE;
+
+    position: relative;
+    float: left;
+    box-sizing: border-box;
+    margin: 0;
+    top: 72px;
+    width: 100%;
+    z-index: -1;
+}
+
+.popup-title {
+    margin: 0 0 15px 0;
 }
 
 .likesstat {
@@ -26,22 +35,6 @@ h1 {
 
 .logout {
     cursor: pointer;
-}
-
-body {
-    background-color: #FFFFFF !important;
-    padding: 0 0 50px 0 !important;
-}
-
-.under-header {
-    border: 1px solid #D0D7DE;
-    position: relative;
-    float: left;
-    margin: 0;
-    top: 72px;
-    box-sizing: border-box;
-    width: 100%;
-    z-index: -1;
 }
 
 .container-main {
@@ -287,18 +280,6 @@ textarea {
     resize: none;
 }
 
-.react-datepicker__day--selected {
-    background-color: #FD8C73 !important;
-}
-
-.react-datepicker__navigation {
-    top: -8px !important;
-}
-
-.react-datepicker-ignore-onclickoutside {
-    caret-color: #fff !important;
-}
-
 .likepost {
     min-height: 90px;
 }
@@ -312,4 +293,18 @@ textarea {
     grid-template-columns: 1fr 1fr;
     gap: 15px;
     box-sizing: border-box;
+}
+
+
+
+.react-datepicker__day--selected {
+    background-color: #FD8C73 !important;
+}
+
+.react-datepicker__navigation {
+    top: -8px !important;
+}
+
+.react-datepicker-ignore-onclickoutside {
+    caret-color: #fff !important;
 }

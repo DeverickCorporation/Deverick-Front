@@ -1,25 +1,96 @@
 .App {
-    padding: 20px;
+    padding: 0;
 }
 
 body {
+    background-color: #FFFFFF;
     font-family: 'Rubik', sans-serif;
     color: #24292F;
-    background-color: rgb(246, 246, 246);
-    padding: 0;
+    padding: 0 0 50px 0;
     margin: 0;
 }
 
+h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    align-items: center;
+    font-size: 16px;
+}
+
+input,
+textarea {
+    padding: 10px 7px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px 0 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+    caret-color: #FD8C73;
+}
+
+input:not(:first-of-type) {
+    padding: 10px 8px;
+}
+
+button {
+    /* background-color: rgb(48, 102, 203); */
+    background-color: #293241;
+    color: #e9ecef;
+    padding: 10px 0;
+    margin-top: 10px;
+
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.main-buttons-container {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 10px;
+}
+
+.main-buttons-container>button:first-of-type {
+    background-color: #e9ecef;
+    color: #293241;
+}
+
+.fail-response {
+    color: #d33f49;
+}
+
+.success-response {
+    color: #148c00;
+}
+
+
+
+
 @media (min-width: 200px) and (max-width: 600px) {
-    .auth{
+    .auth {
         width: 90%;
     }
 }
 
 @media (max-width: 960px) {
-    .App{
+    .App {
         display: none;
     }
+
     #root::after {
         opacity: 1;
         content: "For PC only :(";

@@ -1,74 +1,10 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .auth{
   width: 30%;
   align-items: center;
-  margin: auto;
+  margin: 22px auto 0 auto;
 }
 
-h1 {
+.login-title {
   font-size: 32px;
-  font-weight: bold;
-  margin: 22px 0;
-}
-
-label {
-  align-items: center;
-  font-size: 16px;
-}
-
-input, textarea {
-  padding: 10px 7px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin: 5px 0 10px 0;
-  width: 100%;
-  box-sizing: border-box;
-  font-size: 16px;
-  caret-color: #FD8C73;
-}
-
-input:not(:first-of-type) {
-  padding: 10px 8px;
-}
-
-button {
-  /* background-color: rgb(48, 102, 203); */
-  background-color: #293241;
-  color: #e9ecef;
-  padding: 10px 0;
-  margin-top: 10px;
-
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.auth-button-container {
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  gap: 10px;
-}
-
-.auth-button-container > button:first-of-type {
-  color: rgb(48, 102, 203);
-  /* background-color: rgb(222, 233, 251); */
-  background-color: #e9ecef;
-  color: #293241;
-}
-
-.fail-response {
-  color: #d33f49;
-}
-
-.success-response {
-  color: #148c00;
+  margin: 0 0 22px 0;
 }
