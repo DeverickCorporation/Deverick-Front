@@ -14,3 +14,8 @@
 1. `sudo systemctl enable starnavi-network-frontend.service`
 1. `sudo systemctl start starnavi-network-frontend.service`
 1. `sudo systemctl status starnavi-network-frontend.service`
+
+### Dev setup
+1. Opt: Install [node.js](https://nodejs.org/en/download)
+1. `npm i`
+1. `npm start`
