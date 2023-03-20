@@ -5,7 +5,9 @@ header {
     align-items: center;
     justify-content: space-between;
     height: 80px;
-    padding: 0 90px 0 5%;
+    width: 100%;
+    padding: 0 5% 0 5%;
+    box-sizing: border-box;
 }
 
 .under-header {
@@ -104,7 +106,7 @@ aside>button {
 }
 
 .status-bar>div {
-    width: 300px;
+    width: 50%;
     text-align: center;
 }
 
@@ -160,38 +162,53 @@ aside>button {
     transform: scaleX(0.5);
 }
 
+main {
+    width: 100%;
+}
+
 .post {
     min-height: 120px;
     display: grid;
-    grid-template-columns: 85% 1fr;
+    grid-template-columns: 80% 1fr;
 
     border-bottom: 1px solid #D0D7DE;
 }
 
-.post>h2 {
-    font-size: 20px;
-    font-weight: bold;
-    margin: 8px 0 0 5px;
-    height: 40px;
-    line-height: 40px;
+.title-heart {
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+    justify-content: space-between;
+    display: flex;
+    padding: 10px 0 8px 0;
 }
 
-.post>h2>span {
+
+.title-heart>h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 0 0 5px;
+    /* height: 40px; */
+    line-height: 26px;
+}
+
+.title-heart>h2>span {
     color: #57606A;
     font-size: 18px;
 }
 
 .post>.text {
     font-size: 14px;
-    margin: 0px 0 13px 5px;
+    margin: 0px 1px 13px 5px;
     white-space: pre-line;
 }
 
 .heart-container {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: flex-end;
     padding: 0 5px 0 0;
+
 }
 
 .heart-container>span {
@@ -307,4 +324,46 @@ textarea {
 
 .react-datepicker-ignore-onclickoutside {
     caret-color: #fff !important;
+}
+
+
+@media (max-width: 960px) {
+
+
+    .container-main{
+        display: block;
+    }
+
+    .post{
+        display: block;
+    }
+
+    .title-heart {
+        justify-content: space-between;
+        display: flex;
+    }
+
+    .heart-container {
+        align-items: center;
+    }
+
+    .title-heart>h2 {
+        font-size: 18px;
+    }
+
+    .title-heart>h2>span {
+        font-size: 16px;
+    }
+
+    .heart-container>span {
+        font-size: 10px;
+    }
+
+    .post>.text {
+        font-size: 12px;
+    }
+
+    .post>.data {
+        font-size: 12px;
+    }
 }

@@ -77,22 +77,21 @@ button {
     color: #148c00;
 }
 
+/* ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+html {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+} */
+
 
 
 
 @media (min-width: 200px) and (max-width: 600px) {
     .auth {
         width: 90%;
-    }
-}
-
-@media (max-width: 960px) {
-    .App {
-        display: none;
-    }
-
-    #root::after {
-        opacity: 1;
-        content: "For PC only :(";
     }
 }
