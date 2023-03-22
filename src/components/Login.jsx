@@ -31,7 +31,7 @@ function Login({ setShowRegister, reg_login, reg_password, setJwtToken }) {
 
     return (
         <div>
-            <h1>Log in</h1>
+            <h1 className='login-title'>Log in</h1>
             <label>Login:</label>
             <input type="text" value={login} onChange={(e) => setLogin(e.target.value)} />
             <br />
@@ -43,7 +43,7 @@ function Login({ setShowRegister, reg_login, reg_password, setJwtToken }) {
                 <label className='fail-response'>{resp}</label>}
 
             <br />
-            <div className='auth-button-container'>
+            <div className='main-buttons-container'>
                 <button onClick={() => setShowRegister(true)}>Sign up</button>
                 <button onClick={handleLogin}>Log in</button>
             </div>

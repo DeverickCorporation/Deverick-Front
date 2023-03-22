@@ -32,6 +32,7 @@ function UserActivity() {
     return (
         <div>
             <h1>Your Activity</h1>
+            <br />
             <label>Last login: {data["last_login"]} </label>
             <br />
             <label>Last request: {data["last_request"]} </label>

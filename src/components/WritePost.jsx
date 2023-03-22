@@ -30,15 +30,14 @@ function WritePosts({ setShowCreatePost }) {
 
     return (
         <div>
-            <h1>Create your Post</h1>
+            <h1 className='popup-title'>Create your Post</h1>
             <label>Title:</label>
             <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
             <br />
             <label>Text:</label>
             <textarea value={text} onChange={(e) => setText(e.target.value)} />
 
-            <br />
-            <div className='auth-button-container'>
+            <div className='main-buttons-container'>
                 <button onClick={() => setShowCreatePost(false)}>Cancel</button>
                 <button onClick={handlePostSave}>Publish</button>
             </div>

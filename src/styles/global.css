@@ -1,27 +1,110 @@
+:root {
+    --main-bg-color: white;
+    --main-font-color: #24292F;
+    --additional-font-color: #57606A;
+    --avatar-color: #D9D9D9;
+    --first-main-button-color: #e9ecef;
+    --second-main-button-color: #293241;
+    --input-border-color: #ccc;
+    --orange: #FD8C73;
+    --fail-response-color: #d33f49;
+    --success-response-color: #148c00;
+    --outline-color: #d0d7de;
+    --aside-button-color: #f6f8fa;
+    --aside-button-border-color: rgba(27, 31, 36, 0.15);
+    --close-icon-background-color: #ededed;
+    --close-icon-border-color: #999;
+    --popup-box-background-color: #00000050;
+}
+
 .App {
-    padding: 20px;
+    padding: 0;
 }
 
 body {
+    background-color: var(--main-bg-color);
     font-family: 'Rubik', sans-serif;
-    color: #24292F;
-    background-color: rgb(246, 246, 246);
-    padding: 0;
+    color: var(--main-font-color);
+    padding: 0 0 50px 0;
     margin: 0;
 }
 
-@media (min-width: 200px) and (max-width: 600px) {
-    .auth{
-        width: 90%;
-    }
+h1, h2 {
+    margin: 0;
 }
 
-@media (max-width: 960px) {
-    .App{
-        display: none;
-    }
-    #root::after {
-        opacity: 1;
-        content: "For PC only :(";
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    align-items: center;
+    font-size: 16px;
+}
+
+input,
+textarea {
+    padding: 10px 7px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 5px;
+    margin: 5px 0 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+    caret-color: var(--orange);
+}
+
+input:not(:first-of-type) {
+    padding: 10px 8px;
+}
+
+button {
+    background-color: var(--second-main-button-color);
+    color: var(--first-main-button-color);
+    padding: 10px 0;
+    margin-top: 10px;
+
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+}
+
+.main-buttons-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 10px;
+}
+
+.main-buttons-container>button:first-of-type {
+    background-color: var(--first-main-button-color);
+    color: var(--second-main-button-color);
+}
+
+.fail-response {
+    color: var(--fail-response-color);
+}
+
+.success-response {
+    color: var(--success-response-color);
+}
+
+ ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+html {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+
+@media (min-width: 200px) and (max-width: 600px) {
+    .auth {
+        width: 90%;
     }
 }
