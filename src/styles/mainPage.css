@@ -1,5 +1,5 @@
 header {
-    background-color: #293241;
+    background-color: var(--second-main-button-color);
 
     display: flex;
     align-items: center;
@@ -11,7 +11,7 @@ header {
 }
 
 .under-header {
-    border: 1px solid #D0D7DE;
+    border: 1px solid var(--outline-color);
 
     position: relative;
     float: left;
@@ -26,17 +26,17 @@ header {
     margin: 0 0 15px 0;
 }
 
-.likesstat {
-    margin-top: -22px;
-}
-
 .starnavi-label {
-    color: #e9ecef;
+    color: var(--first-main-button-color);
     font-size: 24px;
 }
 
 .logout {
     cursor: pointer;
+}
+
+button {
+    font-size: 16px;
 }
 
 .container-main {
@@ -54,8 +54,8 @@ aside {
 .avatar {
     width: 80%;
     margin: auto;
-    background: #D9D9D9;
-    outline: 2px solid #d0d7de;
+    background: var(--avatar-color);
+    outline: 2px solid var(--outline-color);
     border-radius: 50%;
     padding-top: 40%;
     padding-bottom: 40%;
@@ -82,7 +82,7 @@ aside>p {
     height: 20px;
     font-size: 16px;
     line-height: 20px;
-    color: #57606A;
+    color: var(--additional-font-color);
 }
 
 aside>button {
@@ -91,8 +91,8 @@ aside>button {
     height: 32px;
     padding: 0;
     border-radius: 7px;
-    background: #F6F8FA;
-    border: 1px solid rgba(27, 31, 36, 0.15);
+    background: var(--aside-button-color);
+    border: 1px solid var(--aside-button-border-color);
     color: inherit;
     font-weight: 400;
     font-size: 16px;
@@ -136,7 +136,7 @@ aside>button {
     height: 1.5px;
     top: 4px;
     left: 0;
-    background-color: #FD8C73;
+    background-color: var(--orange);
     transform: scaleX(1.8);
     transition: transform 0.25s ease;
 }
@@ -149,7 +149,7 @@ aside>button {
     height: 1.5px;
     top: 4px;
     left: 0;
-    background-color: #FD8C73;
+    background-color: var(--orange);
     transform: scaleX(0);
     transition: transform 0.25s ease;
 }
@@ -171,7 +171,7 @@ main {
     display: grid;
     grid-template-columns: 80% 1fr;
 
-    border-bottom: 1px solid #D0D7DE;
+    border-bottom: 1px solid var(--outline-color);
 }
 
 .title-heart {
@@ -184,16 +184,16 @@ main {
 }
 
 
-.title-heart>h2 {
+.title-heart>h2,
+.likepost>h2 {
     font-size: 20px;
     font-weight: bold;
     margin: 0 0 0 5px;
-    /* height: 40px; */
     line-height: 26px;
 }
 
 .title-heart>h2>span {
-    color: #57606A;
+    color: var(--additional-font-color);
     font-size: 18px;
 }
 
@@ -237,7 +237,7 @@ main {
 
 .post>.data {
     text-align: end;
-    color: #57606A;
+    color: var(--additional-font-color);
     font-size: 12px;
     height: 14px;
     margin: 0 0 0 0;
@@ -246,12 +246,12 @@ main {
 }
 
 div.post:nth-child(1) {
-    border-top: 1px solid #D0D7DE;
+    border-top: 1px solid var(--outline-color);
 }
 
 .popup-box {
     position: fixed;
-    background: #00000050;
+    background: var(--popup-box-background-color);
     width: 100%;
     height: 100vh;
     top: 0;
@@ -265,10 +265,10 @@ div.post:nth-child(1) {
     height: auto;
     max-height: 70vh;
     margin-top: calc(100vh - 85vh - 20px);
-    background: #fff;
+    background: var(--main-bg-color);
     border-radius: 4px;
     padding: 20px;
-    border: 1px solid #999;
+    border: 1px solid var(--close-icon-border-color);
     overflow: auto;
 }
 
@@ -278,13 +278,13 @@ div.post:nth-child(1) {
     position: fixed;
     right: calc(30% - 30px);
     top: calc(100vh - 85vh - 33px);
-    background: #ededed;
+    background: var(--close-icon-background-color);
     width: 25px;
     height: 25px;
     border-radius: 50%;
     line-height: 20px;
     text-align: center;
-    border: 1px solid #999;
+    border: 1px solid var(--close-icon-border-color);
     font-size: 20px;
 }
 
@@ -292,17 +292,19 @@ textarea {
     display: block;
     height: 300px;
     font-family: 'Rubik', sans-serif;
-    color: #24292F;
+    color: var(--main-font-color);
     margin-bottom: -20px;
     resize: none;
 }
 
-.likepost {
-    min-height: 90px;
+.likesstat>h2 {
+    font-size: 20px;
+    padding: 10px 0 10px 0;
 }
 
-.likepost:first-child {
-    margin: 5px 0 0 0;
+.data-label,
+.react-datepicker__input-container>input {
+    font-size: 14px;
 }
 
 .data-input-container {
@@ -312,10 +314,21 @@ textarea {
     box-sizing: border-box;
 }
 
+.likepost>h2 {
+    padding: 7px 0 5px 0;
+}
+
+.likepost {
+    min-height: 90px;
+}
+
+.likepost:first-child {
+    margin: 15px 0 0 0;
+}
 
 
 .react-datepicker__day--selected {
-    background-color: #FD8C73 !important;
+    background-color: var(--orange) !important;
 }
 
 .react-datepicker__navigation {
@@ -323,18 +336,54 @@ textarea {
 }
 
 .react-datepicker-ignore-onclickoutside {
-    caret-color: #fff !important;
+    caret-color: var(--main-bg-color) !important;
 }
 
 
 @media (max-width: 960px) {
 
+    .under-header {
+        top: 52px;
+    }
 
-    .container-main{
+    .container-main {
         display: block;
     }
 
-    .post{
+    aside {
+        padding: 20px 0 0 0;
+    }
+
+    .avatar {
+        width: 50%;
+        padding-top: 25%;
+        padding-bottom: 25%;
+    }
+
+    .name {
+        font-size: 22px;
+        margin: 0;
+    }
+
+    .login {
+        font-size: 14px;
+        margin-top: -10px;
+    }
+
+    .create-post,
+    .my-activity {
+        font-size: 14px;
+    }
+
+    aside>button {
+        margin-top: 10px;
+    }
+
+    .status-bar {
+        padding: 10px 0 5px 0;
+    }
+
+    .post {
         display: block;
     }
 
@@ -365,5 +414,54 @@ textarea {
 
     .post>.data {
         font-size: 12px;
+    }
+
+    .likesstat {
+        border-top: 1px solid var(--outline-color);
+        padding: 10px 0 0 0;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    .data-input-container {
+        display: block;
+    }
+
+    .react-datepicker__input-container>input {
+        margin: 3px 0 10px 0;
+    }
+
+    .main-buttons-container {
+        margin-top: -10px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+
+    .box {
+        width: 80%;
+    }
+
+    .close-icon {
+        right: calc(10% - 30px);
+    }
+
+    .popup-title {
+        margin: 0 0 10px 0;
+    }
+
+    .box>div>label {
+        font-size: 14px;
+    }
+
+    .starnavi-label {
+        font-size: 18px;
+    }
+
+    .logout{
+        width: 25px;
     }
 }
