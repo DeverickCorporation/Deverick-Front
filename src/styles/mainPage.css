@@ -342,12 +342,17 @@ textarea {
 
 @media (max-width: 960px) {
 
+    header {
+        height: 60px;
+    }
+
     .under-header {
         top: 52px;
     }
 
     .container-main {
         display: block;
+        width: 90%;
     }
 
     aside {
@@ -385,6 +390,7 @@ textarea {
 
     .post {
         display: block;
+        min-height: 0;
     }
 
     .title-heart {
