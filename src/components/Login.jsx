@@ -2,12 +2,14 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { API_URL } from "../config";
 import '../styles/login.css';
+import { useNavigate } from 'react-router-dom'
 
 
 function Login({ setShowRegister, reg_login, reg_password, setJwtToken }) {
     const [login, setLogin] = useState(reg_login);
     const [password, setPassword] = useState(reg_password);
     const [resp, setResp] = useState(reg_login ? "Registration successful you can log in now" : "");
+    const navigate = useNavigate();
 
 
     function handleLogin() {
@@ -16,6 +18,7 @@ function Login({ setShowRegister, reg_login, reg_password, setJwtToken }) {
             password: password
         })
             .then(response => {
+                navigate('/main')
                 console.log(response.data);
                 setResp(response.data["message"])
                 setJwtToken(response.data["token"])
