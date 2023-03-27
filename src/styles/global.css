@@ -103,7 +103,7 @@ html {
 }
 
 
-@media (min-width: 200px) and (max-width: 600px) {
+@media (min-width: 200px) and (max-width: 960px) {
     .auth {
         width: 90%;
     }

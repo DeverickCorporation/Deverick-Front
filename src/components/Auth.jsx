@@ -14,6 +14,7 @@ function Auth({ setJwtToken }) {
         setLogin(reg_login)
         setPassword(reg_pass)
     }
+
     return (
         <div className='auth'>
             {showRegister ?
