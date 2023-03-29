@@ -2,14 +2,13 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { API_URL } from "../config";
 
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
-function Login({ setShowRegister, reg_login, reg_password, setJwtToken }) {
+function Login({ reg_login, reg_password, setJwtToken }) {
     const [login, setLogin] = useState(reg_login);
     const [password, setPassword] = useState(reg_password);
     const [resp, setResp] = useState(reg_login ? "Registration successful you can log in now" : "");
-    const navigate = useNavigate();
 
 
     function handleLogin() {
@@ -18,7 +17,6 @@ function Login({ setShowRegister, reg_login, reg_password, setJwtToken }) {
             password: password
         })
             .then(response => {
-                navigate('/main')
                 console.log(response.data);
                 setResp(response.data["message"])
                 setJwtToken(response.data["token"])
@@ -47,7 +45,7 @@ function Login({ setShowRegister, reg_login, reg_password, setJwtToken }) {
 
             <br />
             <div className='main-buttons-container'>
-                <Link to='/auth/register'><button onClick={() => setShowRegister(true)}>Sign up</button></Link>
+                <Link to='/auth/register'><button>Sign up</button></Link>
                 <button onClick={handleLogin}>Log in</button>
             </div>
         </div>
