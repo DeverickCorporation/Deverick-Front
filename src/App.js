@@ -23,7 +23,7 @@ function App() {
               }
 
               {jwt_token ? 
-              <Route path='/main' element={<MainPage jwt_token={jwt_token} setJwtToken={setJwtToken}/>}>{console.log(1)}</Route>:
+              <Route path='/main' element={<MainPage jwt_token={jwt_token} setJwtToken={setJwtToken}/>}/>:
               <Route path='/main' element={<Navigate to="/auth/login"/>}/>}
 
               {jwt_token ? 
