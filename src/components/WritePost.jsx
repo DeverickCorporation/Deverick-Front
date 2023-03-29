@@ -37,7 +37,7 @@ function WritePosts({ setShowCreatePost }) {
             <label>Text:</label>
             <textarea value={text} onChange={(e) => setText(e.target.value)} />
 
-            <div className='main-buttons-container'>
+            <div className='main-buttons-container write-post-buttons'>
                 <button onClick={() => setShowCreatePost(false)}>Cancel</button>
                 <button onClick={handlePostSave}>Publish</button>
             </div>
