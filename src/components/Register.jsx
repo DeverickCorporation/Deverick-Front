@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { API_URL } from "../config";
 import '../styles/login.css';
+import { Link, useNavigate } from 'react-router-dom'
 
 
 function Register({ setShowRegister, setAutoLogin }) {
@@ -10,6 +11,7 @@ function Register({ setShowRegister, setAutoLogin }) {
 
   const [name, setName] = useState('');
   const [resp, setResp] = useState("");
+  const navigate = useNavigate();
 
 
   function handleRegestration() {
@@ -19,6 +21,7 @@ function Register({ setShowRegister, setAutoLogin }) {
       name: name
     })
       .then(response => {
+        navigate('/auth/login')
         console.log(response.data);
         setResp(response.data["message"])
         setAutoLogin(login, password)
@@ -46,7 +49,7 @@ function Register({ setShowRegister, setAutoLogin }) {
 
       <br />
       <div className='main-buttons-container'>
-        <button onClick={() => setShowRegister(false)}>Log in</button>
+        <Link to="/auth/login"><button onClick={() => setShowRegister(false)}>Log in</button></Link>
         <button onClick={handleRegestration}>Sign up</button>
       </div>
     </div>

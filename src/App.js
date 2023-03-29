@@ -14,17 +14,21 @@ function App() {
       <Suspense fallback={<div>Loading...</div>}>
            <Routes>
 
+              {/* <Route path='/auth/*' element={<Auth setJwtToken={setJwtToken}/>}/> */}
+
+
               {jwt_token ?
-              <Route path='/login' element={<Navigate to="/main"/>}/>:
-              <Route path='/login' element={<Auth setJwtToken={setJwtToken}/>}/>}
+              <Route path='/auth/*' element={<Navigate to="/main"/>}/>:
+              <Route path='/auth/*' element={<Auth setJwtToken={setJwtToken}/>}/>
+              }
 
               {jwt_token ? 
-              <Route path='/main' element={<MainPage jwt_token={jwt_token} setJwtToken={setJwtToken}/>}/>:
-              <Route path='/main' element={<Navigate to="/login"/>}/>}
+              <Route path='/main' element={<MainPage jwt_token={jwt_token} setJwtToken={setJwtToken}/>}>{console.log(1)}</Route>:
+              <Route path='/main' element={<Navigate to="/auth/login"/>}/>}
 
               {jwt_token ? 
               <Route path='*' element={<Navigate to="/main"/>}/>:
-              <Route path='*' element={<Navigate to="/login"/>}/>}
+              <Route path='*' element={<Navigate to="/auth/login"/>}/>}
 
            </Routes>
       </Suspense>
