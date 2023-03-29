@@ -5,7 +5,7 @@ import '../styles/login.css';
 import { Link, useNavigate } from 'react-router-dom'
 
 
-function Register({ setShowRegister, setAutoLogin }) {
+function Register({ setAutoLogin }) {
   const [password, setPass] = useState('');
   const [login, setLogin] = useState('');
 
@@ -25,7 +25,6 @@ function Register({ setShowRegister, setAutoLogin }) {
         console.log(response.data);
         setResp(response.data["message"])
         setAutoLogin(login, password)
-        setShowRegister(false)
       })
       .catch(error => {
         console.log(error);
@@ -49,7 +48,7 @@ function Register({ setShowRegister, setAutoLogin }) {
 
       <br />
       <div className='main-buttons-container'>
-        <Link to="/auth/login"><button onClick={() => setShowRegister(false)}>Log in</button></Link>
+        <Link to="/auth/login"><button>Log in</button></Link>
         <button onClick={handleRegestration}>Sign up</button>
       </div>
     </div>
