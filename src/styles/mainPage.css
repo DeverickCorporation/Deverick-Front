@@ -10,6 +10,20 @@ header {
     box-sizing: border-box;
 }
 
+header>div {
+    display: flex;
+}
+
+header>div>a>img {
+    width: 20px;
+    height: 20px;
+    margin: 3px 0 0 8px;
+}
+
+header>div>img {
+    margin: -7% 0 0 0;
+}
+
 .under-header {
     border: 1px solid var(--outline-color);
 
@@ -293,7 +307,6 @@ textarea {
     height: 300px;
     font-family: 'Rubik', sans-serif;
     color: var(--main-font-color);
-    margin-bottom: -20px;
     resize: none;
 }
 
@@ -326,7 +339,6 @@ textarea {
     margin: 15px 0 0 0;
 }
 
-
 .react-datepicker__day--selected {
     background-color: var(--orange) !important;
 }
@@ -340,134 +352,147 @@ textarea {
 }
 
 
-@media (max-width: 960px) {
 
-    header {
-        height: 60px;
-    }
 
-    .under-header {
-        top: 52px;
-    }
+.mob>.main-page>header {
+    height: 60px;
+}
 
-    .container-main {
-        display: block;
-        width: 90%;
-    }
+.mob>.main-page>.under-header {
+    top: 52px;
+}
 
-    aside {
-        padding: 20px 0 0 0;
-    }
+.mob>.main-page>.container-main {
+    display: block;
+    width: 90%;
+}
 
-    .avatar {
-        width: 50%;
-        padding-top: 25%;
-        padding-bottom: 25%;
-    }
+.mob>.main-page>.container-main>aside {
+    padding: 20px 0 0 0;
+}
 
-    .name {
-        font-size: 22px;
-        margin: 0;
-    }
+.mob>.main-page>.container-main>aside>.avatar {
+    width: 50%;
+    padding-top: 25%;
+    padding-bottom: 25%;
+}
 
-    .login {
-        font-size: 14px;
-        margin-top: -10px;
-    }
+.mob>.main-page>.container-main>aside>.name {
+    font-size: 22px;
+    margin: 0;
+}
 
-    .create-post,
-    .my-activity {
-        font-size: 14px;
-    }
+.mob>.main-page>.container-main>aside>.login {
+    font-size: 14px;
+    margin-top: -10px;
+}
 
-    aside>button {
-        margin-top: 10px;
-    }
+.mob>.main-page>.container-main>aside>.create-post,
+.mob>.main-page>.container-main>aside>.my-activity {
+    font-size: 14px;
+}
 
-    .status-bar {
-        padding: 10px 0 5px 0;
-    }
+.mob>.main-page>.container-main>aside>aside>button {
+    margin-top: 10px;
+}
 
-    .post {
-        display: block;
-        min-height: 0;
-    }
+.mob>.main-page>.container-main>main>.status-bar {
+    padding: 10px 0 5px 0;
+}
 
-    .title-heart {
-        justify-content: space-between;
-        display: flex;
-    }
+.mob>.main-page>.container-main>main>div>.post {
+    display: block;
+    min-height: 0;
+}
 
-    .heart-container {
-        align-items: center;
-    }
+.mob>.main-page>.container-main>main>div>.post>.title-heart {
+    justify-content: space-between;
+    display: flex;
+}
 
-    .title-heart>h2 {
-        font-size: 18px;
-    }
+.mob>.main-page>.container-main>main>div>.post>.title-heart>.heart-container {
+    align-items: center;
+}
 
-    .title-heart>h2>span {
-        font-size: 16px;
-    }
+.mob>.main-page>.container-main>main>div>.post>.title-heart>h2 {
+    font-size: 18px;
+}
 
-    .heart-container>span {
-        font-size: 10px;
-    }
+.mob>.main-page>.container-main>main>div>.post>.title-heart>h2>span {
+    font-size: 16px;
+}
 
-    .post>.text {
-        font-size: 12px;
-    }
+.mob>.main-page>.container-main>main>div>.post>.title-heart>.heart-container>span {
+    font-size: 10px;
+}
 
-    .post>.data {
-        font-size: 12px;
-    }
+.mob>.main-page>.container-main>main>div>.post>.text {
+    font-size: 12px;
+}
 
-    .likesstat {
-        border-top: 1px solid var(--outline-color);
-        padding: 10px 0 0 0;
-    }
+.mob>.main-page>.container-main>main>div>.post>.data {
+    font-size: 12px;
+}
 
-    h1 {
-        font-size: 18px;
-    }
+.mob>.main-page>.container-main>main>.likesstat {
+    border-top: 1px solid var(--outline-color);
+    padding: 10px 0 0 0;
+}
 
-    .data-input-container {
-        display: block;
-    }
+#root>div>div>div>div.popup-box>div>div>h1,
+#root>div>div>div>div.popup-box>div>div>h1 {
+    font-size: 18px;
+}
 
-    .react-datepicker__input-container>input {
-        margin: 3px 0 10px 0;
-    }
+.mob>.main-page>.container-main>main>.likesstat>.data-input-container {
+    display: block;
+}
 
-    .main-buttons-container {
-        margin-top: -10px;
-    }
+.mob>.main-page>.container-main>main>.likesstat>.data-input-container>div:nth-child(1)>.react-datepicker-wrapper>div>input {
+    margin: 3px 0 10px 0;
+}
 
-    button {
-        font-size: 14px;
-    }
+.mob>.main-page>.container-main>main>.likesstat>.main-buttons-container {
+    margin-top: -10px;
+}
 
-    .box {
-        width: 80%;
-    }
+#root>div>div>div>div.popup-box>div>div>div>button,
+#root>div>div>div>div>main>div.likesstat>div.main-buttons-container>button {
+    font-size: 14px;
+}
 
-    .close-icon {
-        right: calc(10% - 30px);
-    }
+#root>div>div>div>div>main>div.likesstat>div:nth-child(4)>label {
+    font-size: 14px;
+}
 
-    .popup-title {
-        margin: 0 0 10px 0;
-    }
+#root>div>div>div>div>main>div.likesstat>div:nth-child(4)>div>div>h2 {
+    font-size: 18px;
+}
 
-    .box>div>label {
-        font-size: 14px;
-    }
+#root>div>div>div>div>main>div.likesstat>div:nth-child(4)>div>div>p.text {
+    font-size: 12px;
+}
 
-    .starnavi-label {
-        font-size: 18px;
-    }
+.mob>div>.popup-box>.box {
+    width: 80%;
+}
 
-    .logout{
-        width: 25px;
-    }
+.mob>div>.popup-box>.box>.close-icon {
+    right: calc(10% - 30px);
+}
+
+.mob>div>.popup-box>.box>div>h1.popup-title {
+    margin: 0 0 10px 0;
+}
+
+.mob>div>.popup-box>.box>div>label {
+    font-size: 14px;
+}
+
+.mob>.main-page>header>div>.starnavi-label {
+    font-size: 18px;
+}
+
+.mob>.main-page>header>.logout {
+    width: 25px;
 }

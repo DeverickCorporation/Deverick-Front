@@ -7,6 +7,7 @@ import '../styles/login.css';
 function WritePosts({ setShowCreatePost }) {
     const [title, setTitle] = useState("");
     const [text, setText] = useState("");
+    const [writePost_resp, setResp] = useState("");
 
 
     function handlePostSave() {
@@ -24,6 +25,7 @@ function WritePosts({ setShowCreatePost }) {
             })
             .catch(error => {
                 console.log(error);
+                setResp(error.response.data["message"]);
             });
     }
 
@@ -36,8 +38,8 @@ function WritePosts({ setShowCreatePost }) {
             <br />
             <label>Text:</label>
             <textarea value={text} onChange={(e) => setText(e.target.value)} />
-
-            <div className='main-buttons-container'>
+            <label className='fail-response write-post-resp'>{writePost_resp}</label>
+            <div className='main-buttons-container write-post-buttons'>
                 <button onClick={() => setShowCreatePost(false)}>Cancel</button>
                 <button onClick={handlePostSave}>Publish</button>
             </div>

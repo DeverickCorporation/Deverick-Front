@@ -29,7 +29,8 @@ body {
     margin: 0;
 }
 
-h1, h2 {
+h1,
+h2 {
     margin: 0;
 }
 
@@ -61,8 +62,8 @@ input:not(:first-of-type) {
 }
 
 button {
-    background-color: var(--second-main-button-color);
-    color: var(--first-main-button-color);
+    background-color: var(--first-main-button-color);
+    color: var(--second-main-button-color);
     padding: 10px 0;
     margin-top: 10px;
 
@@ -79,9 +80,9 @@ button {
     gap: 10px;
 }
 
-.main-buttons-container>button:first-of-type {
-    background-color: var(--first-main-button-color);
-    color: var(--second-main-button-color);
+.main-buttons-container>button:last-of-type {
+    background-color: var(--second-main-button-color);
+    color: var(--first-main-button-color);
 }
 
 .fail-response {
@@ -92,7 +93,7 @@ button {
     color: var(--success-response-color);
 }
 
- ::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 0px;
     background: transparent;
 }
@@ -103,8 +104,15 @@ html {
 }
 
 
-@media (min-width: 200px) and (max-width: 600px) {
-    .auth {
-        width: 90%;
-    }
+
+.auth.mob {
+    width: 90%;
+}
+
+.auth.mob>div>h1 {
+    font-size: 26px;
+}
+
+.auth.mob>div>div>button {
+    font-size: 14px;
 }

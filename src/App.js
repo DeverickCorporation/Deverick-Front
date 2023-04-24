@@ -1,16 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
+import {  Route, Routes } from 'react-router-dom';
+import { Navigate } from "react-router";
 
-import Auth from "./components/Auth";
-import MainPage from './components/MainPage';
+const MainPage = lazy(() => import('./components/MainPage'));
+const Auth = lazy(() => import('./components/Auth'));
+
 function App() {
-
   const [jwt_token, setJwtToken] = useState(localStorage.getItem('jwt_token'));
-
 
   return (
     <div className="App">
-      {jwt_token ? <MainPage jwt_token={jwt_token} setJwtToken={setJwtToken}/> : <Auth setJwtToken={setJwtToken} />}
+      <Suspense fallback={<div>Loading...</div>}>
+              
+              {jwt_token ?
+                <Routes>
+                  <Route path='/main' element={<MainPage jwt_token={jwt_token} setJwtToken={setJwtToken}/>}/>
+                  <Route path='*' element={<Navigate to="/main"/>}/>
+                </Routes>:
+                <Routes>
+                  <Route path='/auth/*' element={<Auth setJwtToken={setJwtToken}/>}/>
+                  <Route path='*' element={<Navigate to="/auth/login"/>}/>
+                </Routes>
+              }
 
+      </Suspense>
     </div>
   );
 }

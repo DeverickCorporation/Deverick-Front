@@ -6,6 +6,8 @@ import '../styles/login.css';
 function UserActivity() {
 
     const [data, setData] = useState("");
+    const last_login = new Date(data["last_login"] * 1000).toLocaleString();
+    const last_request = new Date(data["last_request"] * 1000).toLocaleString();
 
     async function fetchActivity() {
         try {
@@ -33,9 +35,9 @@ function UserActivity() {
         <div>
             <h1>Your Activity</h1>
             <br />
-            <label>Last login: {data["last_login"]} </label>
+            <label>Last login: {last_login} </label>
             <br />
-            <label>Last request: {data["last_request"]} </label>
+            <label>Last request: {last_request} </label>
         </div>
     );
 }
