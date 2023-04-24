@@ -9,7 +9,7 @@ function LikeItem(props) {
             <div className='heart-container'>
             </div>
             <p className='text'>liked your "{like_json.post_name}"</p>
-            <p className='data'>{like_json.time}</p>
+            <p className='data'>{new Date(like_json.time * 1000).toLocaleString()}</p>
         </div>
     )
 }

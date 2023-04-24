@@ -29,7 +29,8 @@ body {
     margin: 0;
 }
 
-h1, h2 {
+h1,
+h2 {
     margin: 0;
 }
 
@@ -92,7 +93,7 @@ button {
     color: var(--success-response-color);
 }
 
- ::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 0px;
     background: transparent;
 }
@@ -103,8 +104,15 @@ html {
 }
 
 
-@media (min-width: 200px) and (max-width: 960px) {
-    .auth {
-        width: 90%;
-    }
+
+.auth.mob {
+    width: 90%;
+}
+
+.auth.mob>div>h1 {
+    font-size: 26px;
+}
+
+.auth.mob>div>div>button {
+    font-size: 14px;
 }

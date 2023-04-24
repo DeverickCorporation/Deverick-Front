@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 function Login({ reg_login, reg_password, setJwtToken }) {
     const [login, setLogin] = useState(reg_login);
     const [password, setPassword] = useState(reg_password);
-    const [resp, setResp] = useState(reg_login ? "Registration successful you can log in now" : "");
+    const [login_resp, setResp] = useState(reg_login ? "Registration successful you can log in now" : "");
 
 
     function handleLogin() {
@@ -40,8 +40,8 @@ function Login({ reg_login, reg_password, setJwtToken }) {
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
 
             {reg_login ?
-                <label className='success-response'>{resp}</label> :
-                <label className='fail-response'>{resp}</label>}
+                <label className='success-response'>{login_resp}</label> :
+                <label className='fail-response'>{login_resp}</label>}
 
             <br />
             <div className='main-buttons-container'>

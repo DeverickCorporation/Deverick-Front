@@ -42,7 +42,7 @@ function PostItem(props) {
                 </div>
             </div>
             <p className='text'>{post_json.post_text}</p>
-            <p className='data'>{post_json.time}</p>
+            <p className='data'>{new Date(post_json.time * 1000).toLocaleString()}</p>
         </div>
     )
 }
