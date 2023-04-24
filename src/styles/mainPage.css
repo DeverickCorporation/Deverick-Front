@@ -40,7 +40,7 @@ header>div>img {
     margin: 0 0 15px 0;
 }
 
-.starnavi-label {
+.deverick-label {
     color: var(--first-main-button-color);
     font-size: 24px;
 }
@@ -489,7 +489,7 @@ textarea {
     font-size: 14px;
 }
 
-.mob>.main-page>header>div>.starnavi-label {
+.mob>.main-page>header>div>.deverick-label {
     font-size: 18px;
 }
 

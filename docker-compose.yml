@@ -1,8 +1,8 @@
 version: "3.8"
 services:
   nginx-react:
-    container_name: StarNavi-Network-Frontend
-    build: "https://github.com/sovheiv/StarNavi-Network-Frontend.git#main:"
+    container_name: Deverick-Frontend
+    build: "https://github.com/sovheiv/Deverick-Frontend.git#main:"
     ports:
       - 8004:8004
     environment:
