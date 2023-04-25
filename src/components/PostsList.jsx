@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { API_URL } from '../config';
 import PostItem from './PostItem';
 
-function PostList() {
+function PostList({ showCreatePost }) {
 
     const [loading, setLoading] = useState(false);
     const [posts_list, setPostsList] = useState([]);
@@ -13,18 +13,23 @@ function PostList() {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [loading]);
 
     if (document.documentElement.clientHeight > document.body.clientHeight && !loading) {
-        console.log(1)
         setLoading(true)
-        loadNewPosts()
+        loadNewPosts(false)
     }
 
-    async function loadNewPosts() {
+    useEffect(() => {
+        updatePosts(showCreatePost)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [showCreatePost]);
+
+    async function loadNewPosts(triggered) {
         setLoading(true)
         let params = {}
-        if (posts_list.length > 0) {
+        if (posts_list.length > 0 && !triggered) {
             params = { limit: 3, start_from: posts_list[posts_list.length - 1].post_id - 1 }
         } else {
             params = { limit: 3 }
@@ -41,6 +46,13 @@ function PostList() {
         } catch (error) {
             console.error(error);
         }
+        
+    }
+
+    function updatePosts(showCreatePost) {
+        setPostsList([])
+        if (!showCreatePost) {  
+        loadNewPosts(true);}
     }
 
     const handleScroll = () => {
@@ -50,7 +62,7 @@ function PostList() {
 
         if (scrollTop + clientHeight >= scrollHeight - (scrollHeight * 0.20) && !loading) {
             setLoading(true)
-            loadNewPosts()
+            loadNewPosts(false)
         }
     };
 
