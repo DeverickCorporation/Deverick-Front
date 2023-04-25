@@ -50,6 +50,7 @@ function MainPage({ jwt_token, setJwtToken }) {
       }
     }
     verifyToken();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const toggleShowCreatePost = () => {
@@ -102,7 +103,7 @@ function MainPage({ jwt_token, setJwtToken }) {
 
             {showLikesStat ?
               <LikesStat setShowLikesStat={setShowLikesStat} /> :
-              <PostList />}
+              <PostList showCreatePost={showCreatePost}/>}
           </main>
         </div>
 

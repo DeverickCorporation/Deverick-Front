@@ -43,8 +43,10 @@ function LikesStat({ setShowLikesStat }) {
 
         }
     }
+
     useEffect(() => {
         handleLikesStat();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
 
